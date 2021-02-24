@@ -3,8 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "git@github.com:googleapis/nodejs-org-policy.git",
-        "sha": "e4747f7250d3ef8ea50c9d7422e7c8f2788435b2"
+        "remote": "https://github.com/googleapis/nodejs-org-policy.git",
+        "sha": "2a8153861c4c845b43689c0eba3b837a2aa04639"
       }
     },
     {
