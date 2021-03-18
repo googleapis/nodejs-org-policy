@@ -1,14 +1,14 @@
 {
-  "name": "org-policy",
-  "name_pretty": "Organization Policy",
-  "product_documentation": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
   "client_documentation": "https://googleapis.dev/nodejs/org-policy/latest/index.html",
-  "issue_tracker": "https://github.com/googleapis/nodejs-org-policy/issues",
-  "release_level": "GA",
-  "language": "nodejs",
-  "repo": "googleapis/nodejs-org-policy",
-  "distribution_name": "@google-cloud/org-policy",
   "api_id": "orgpolicy.googleapis.com",
-  "requires_billing": true
+  "distribution_name": "@google-cloud/org-policy",
+  "release_level": "GA",
+  "default_version": "v2",
+  "language": "nodejs",
+  "name_pretty": "Organization Policy",
+  "repo": "googleapis/nodejs-org-policy",
+  "product_documentation": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+  "requires_billing": true,
+  "name": "org-policy",
+  "issue_tracker": "https://github.com/googleapis/nodejs-org-policy/issues"
 }
-
