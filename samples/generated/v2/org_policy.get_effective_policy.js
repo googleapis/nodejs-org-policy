@@ -12,35 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(parent) {
-  // [START orgpolicy_list_policies_sample]
+function main(name) {
+  // [START orgpolicy_get_effective_policy_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The target Cloud resource that parents the set of constraints and policies
-   *  that will be returned from this call. Must be in one of the following
-   *  forms:
-   *  * `projects/{project_number}`
-   *  * `projects/{project_id}`
-   *  * `folders/{folder_id}`
-   *  * `organizations/{organization_id}`
+   *  Required. The effective policy to compute. See `Policy` for naming rules.
    */
-  // const parent = 'abc123'
-  /**
-   *  Size of the pages to be returned. This is currently unsupported and will
-   *  be ignored. The server may at any point start using this field to limit
-   *  page size.
-   */
-  // const pageSize = 1234
-  /**
-   *  Page token used to retrieve the next page. This is currently unsupported
-   *  and will be ignored. The server may at any point start using this field.
-   */
-  // const pageToken = 'abc123'
+  // const name = 'abc123'
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -48,21 +30,19 @@ function main(parent) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function listPolicies() {
+  async function getEffectivePolicy() {
     // Construct request
     const request = {
-      parent,
+      name,
     };
 
     // Run request
-    const iterable = await orgpolicyClient.listPoliciesAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await orgpolicyClient.getEffectivePolicy(request);
+    console.log(response);
   }
 
-  listPolicies();
-  // [END orgpolicy_list_policies_sample]
+  getEffectivePolicy();
+  // [END orgpolicy_get_effective_policy_sample]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,27 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(parent, policy) {
-  // [START orgpolicy_create_policy_sample]
+function main(name) {
+  // [START orgpolicy_delete_policy_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The Cloud resource that will parent the new Policy. Must be in one of the
-   *  following forms:
-   *  * `projects/{project_number}`
-   *  * `projects/{project_id}`
-   *  * `folders/{folder_id}`
-   *  * `organizations/{organization_id}`
+   *  Required. Name of the policy to delete.
+   *  See `Policy` for naming rules.
    */
-  // const parent = 'abc123'
-  /**
-   *  Required. `Policy` to create.
-   */
-  // const policy = ''
+  // const name = 'abc123'
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -40,20 +31,19 @@ function main(parent, policy) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function createPolicy() {
+  async function deletePolicy() {
     // Construct request
     const request = {
-      parent,
-      policy,
+      name,
     };
 
     // Run request
-    const response = await orgpolicyClient.createPolicy(request);
+    const response = await orgpolicyClient.deletePolicy(request);
     console.log(response);
   }
 
-  createPolicy();
-  // [END orgpolicy_create_policy_sample]
+  deletePolicy();
+  // [END orgpolicy_delete_policy_sample]
 }
 
 process.on('unhandledRejection', err => {

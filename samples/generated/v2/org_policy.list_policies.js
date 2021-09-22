@@ -12,19 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START orgpolicy_delete_policy_sample]
+function main(parent) {
+  // [START orgpolicy_list_policies_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. Name of the policy to delete.
-   *  See `Policy` for naming rules.
+   *  Required. The target Cloud resource that parents the set of constraints and policies
+   *  that will be returned from this call. Must be in one of the following
+   *  forms:
+   *  * `projects/{project_number}`
+   *  * `projects/{project_id}`
+   *  * `folders/{folder_id}`
+   *  * `organizations/{organization_id}`
    */
-  // const name = 'abc123'
+  // const parent = 'abc123'
+  /**
+   *  Size of the pages to be returned. This is currently unsupported and will
+   *  be ignored. The server may at any point start using this field to limit
+   *  page size.
+   */
+  // const pageSize = 1234
+  /**
+   *  Page token used to retrieve the next page. This is currently unsupported
+   *  and will be ignored. The server may at any point start using this field.
+   */
+  // const pageToken = 'abc123'
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -32,19 +47,21 @@ function main(name) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function deletePolicy() {
+  async function listPolicies() {
     // Construct request
     const request = {
-      name,
+      parent,
     };
 
     // Run request
-    const response = await orgpolicyClient.deletePolicy(request);
-    console.log(response);
+    const iterable = await orgpolicyClient.listPoliciesAsync(request);
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  deletePolicy();
-  // [END orgpolicy_delete_policy_sample]
+  listPolicies();
+  // [END orgpolicy_list_policies_sample]
 }
 
 process.on('unhandledRejection', err => {

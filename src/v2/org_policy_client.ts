@@ -408,6 +408,10 @@ export class OrgPolicyClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getPolicy(request);
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.get_policy.js</caption>
+   * region_tag:orgpolicy_get_policy_sample
+   *
    */
   getPolicy(
     request?: protos.google.cloud.orgpolicy.v2.IGetPolicyRequest,
@@ -500,6 +504,10 @@ export class OrgPolicyClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getEffectivePolicy(request);
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.get_effective_policy.js</caption>
+   * region_tag:orgpolicy_get_effective_policy_sample
+   *
    */
   getEffectivePolicy(
     request?: protos.google.cloud.orgpolicy.v2.IGetEffectivePolicyRequest,
@@ -599,6 +607,10 @@ export class OrgPolicyClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.createPolicy(request);
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.create_policy.js</caption>
+   * region_tag:orgpolicy_create_policy_sample
+   *
    */
   createPolicy(
     request?: protos.google.cloud.orgpolicy.v2.ICreatePolicyRequest,
@@ -692,6 +704,10 @@ export class OrgPolicyClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.updatePolicy(request);
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.update_policy.js</caption>
+   * region_tag:orgpolicy_update_policy_sample
+   *
    */
   updatePolicy(
     request?: protos.google.cloud.orgpolicy.v2.IUpdatePolicyRequest,
@@ -781,6 +797,10 @@ export class OrgPolicyClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.deletePolicy(request);
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.delete_policy.js</caption>
+   * region_tag:orgpolicy_delete_policy_sample
+   *
    */
   deletePolicy(
     request?: protos.google.cloud.orgpolicy.v2.IDeletePolicyRequest,
@@ -886,6 +906,10 @@ export class OrgPolicyClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.list_constraints.js</caption>
+   * region_tag:orgpolicy_list_constraints_sample
+   *
    */
   listConstraints(
     request?: protos.google.cloud.orgpolicy.v2.IListConstraintsRequest,
@@ -960,6 +984,10 @@ export class OrgPolicyClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.list_constraints.js</caption>
+   * region_tag:orgpolicy_list_constraints_sample
+   *
    */
   listConstraintsStream(
     request?: protos.google.cloud.orgpolicy.v2.IListConstraintsRequest,
@@ -973,7 +1001,8 @@ export class OrgPolicyClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConstraints'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConstraints.createStream(
       this.innerApiCalls.listConstraints as gax.GaxCall,
@@ -1017,6 +1046,10 @@ export class OrgPolicyClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.list_constraints.js</caption>
+   * region_tag:orgpolicy_list_constraints_sample
+   *
    */
   listConstraintsAsync(
     request?: protos.google.cloud.orgpolicy.v2.IListConstraintsRequest,
@@ -1031,7 +1064,8 @@ export class OrgPolicyClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConstraints'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConstraints.asyncIterate(
       this.innerApiCalls['listConstraints'] as GaxCall,
@@ -1098,6 +1132,10 @@ export class OrgPolicyClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.list_policies.js</caption>
+   * region_tag:orgpolicy_list_policies_sample
+   *
    */
   listPolicies(
     request?: protos.google.cloud.orgpolicy.v2.IListPoliciesRequest,
@@ -1171,6 +1209,10 @@ export class OrgPolicyClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.list_policies.js</caption>
+   * region_tag:orgpolicy_list_policies_sample
+   *
    */
   listPoliciesStream(
     request?: protos.google.cloud.orgpolicy.v2.IListPoliciesRequest,
@@ -1184,7 +1226,8 @@ export class OrgPolicyClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listPolicies'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listPolicies.createStream(
       this.innerApiCalls.listPolicies as gax.GaxCall,
@@ -1229,6 +1272,10 @@ export class OrgPolicyClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v2/org_policy.list_policies.js</caption>
+   * region_tag:orgpolicy_list_policies_sample
+   *
    */
   listPoliciesAsync(
     request?: protos.google.cloud.orgpolicy.v2.IListPoliciesRequest,
@@ -1243,7 +1290,8 @@ export class OrgPolicyClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listPolicies'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listPolicies.asyncIterate(
       this.innerApiCalls['listPolicies'] as GaxCall,
