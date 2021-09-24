@@ -12,18 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(policy) {
-  // [START orgpolicy_v2_generated_OrgPolicy_UpdatePolicy_async]
+function main(name) {
+  // [START orgpolicy_v2_generated_OrgPolicy_GetPolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. `Policy` to update.
+   *  Required. Resource name of the policy. See `Policy` for naming requirements.
    */
-  // const policy = ''
+  // const name = 'abc123'
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -31,19 +30,19 @@ function main(policy) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function updatePolicy() {
+  async function getPolicy() {
     // Construct request
     const request = {
-      policy,
+      name,
     };
 
     // Run request
-    const response = await orgpolicyClient.updatePolicy(request);
+    const response = await orgpolicyClient.getPolicy(request);
     console.log(response);
   }
 
-  updatePolicy();
-  // [END orgpolicy_v2_generated_OrgPolicy_UpdatePolicy_async]
+  getPolicy();
+  // [END orgpolicy_v2_generated_OrgPolicy_GetPolicy_async]
 }
 
 process.on('unhandledRejection', err => {

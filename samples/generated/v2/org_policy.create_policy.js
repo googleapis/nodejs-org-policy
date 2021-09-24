@@ -12,18 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START orgpolicy_v2_generated_OrgPolicy_GetPolicy_async]
+function main(parent, policy) {
+  // [START orgpolicy_v2_generated_OrgPolicy_CreatePolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. Resource name of the policy. See `Policy` for naming requirements.
+   *  Required. The Cloud resource that will parent the new Policy. Must be in one of the
+   *  following forms:
+   *  * `projects/{project_number}`
+   *  * `projects/{project_id}`
+   *  * `folders/{folder_id}`
+   *  * `organizations/{organization_id}`
    */
-  // const name = 'abc123'
+  // const parent = 'abc123'
+  /**
+   *  Required. `Policy` to create.
+   */
+  // const policy = ''
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -31,19 +39,20 @@ function main(name) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function getPolicy() {
+  async function createPolicy() {
     // Construct request
     const request = {
-      name,
+      parent,
+      policy,
     };
 
     // Run request
-    const response = await orgpolicyClient.getPolicy(request);
+    const response = await orgpolicyClient.createPolicy(request);
     console.log(response);
   }
 
-  getPolicy();
-  // [END orgpolicy_v2_generated_OrgPolicy_GetPolicy_async]
+  createPolicy();
+  // [END orgpolicy_v2_generated_OrgPolicy_CreatePolicy_async]
 }
 
 process.on('unhandledRejection', err => {

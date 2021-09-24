@@ -973,7 +973,8 @@ export class OrgPolicyClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConstraints'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConstraints.createStream(
       this.innerApiCalls.listConstraints as gax.GaxCall,
@@ -1031,7 +1032,8 @@ export class OrgPolicyClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConstraints'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConstraints.asyncIterate(
       this.innerApiCalls['listConstraints'] as GaxCall,
@@ -1184,7 +1186,8 @@ export class OrgPolicyClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listPolicies'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listPolicies.createStream(
       this.innerApiCalls.listPolicies as gax.GaxCall,
@@ -1243,7 +1246,8 @@ export class OrgPolicyClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listPolicies'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listPolicies.asyncIterate(
       this.innerApiCalls['listPolicies'] as GaxCall,
