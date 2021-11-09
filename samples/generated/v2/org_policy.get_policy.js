@@ -12,16 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(name) {
-  // [START orgpolicy_v2_generated_OrgPolicy_GetEffectivePolicy_async]
+  // [START orgpolicy_v2_generated_OrgPolicy_GetPolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The effective policy to compute. See `Policy` for naming rules.
+   *  Required. Resource name of the policy. See `Policy` for naming requirements.
    */
   // const name = 'abc123'
 
@@ -31,19 +30,19 @@ function main(name) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function callGetEffectivePolicy() {
+  async function callGetPolicy() {
     // Construct request
     const request = {
       name,
     };
 
     // Run request
-    const response = await orgpolicyClient.getEffectivePolicy(request);
+    const response = await orgpolicyClient.getPolicy(request);
     console.log(response);
   }
 
-  callGetEffectivePolicy();
-  // [END orgpolicy_v2_generated_OrgPolicy_GetEffectivePolicy_async]
+  callGetPolicy();
+  // [END orgpolicy_v2_generated_OrgPolicy_GetPolicy_async]
 }
 
 process.on('unhandledRejection', err => {

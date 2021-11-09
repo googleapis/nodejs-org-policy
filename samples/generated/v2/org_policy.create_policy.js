@@ -12,16 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(parent) {
-  // [START orgpolicy_v2_generated_OrgPolicy_ListConstraints_async]
+function main(parent, policy) {
+  // [START orgpolicy_v2_generated_OrgPolicy_CreatePolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The Cloud resource that parents the constraint. Must be in one of the
+   *  Required. The Cloud resource that will parent the new Policy. Must be in one of the
    *  following forms:
    *  * `projects/{project_number}`
    *  * `projects/{project_id}`
@@ -30,16 +29,9 @@ function main(parent) {
    */
   // const parent = 'abc123'
   /**
-   *  Size of the pages to be returned. This is currently unsupported and will
-   *  be ignored. The server may at any point start using this field to limit
-   *  page size.
+   *  Required. `Policy` to create.
    */
-  // const pageSize = 1234
-  /**
-   *  Page token used to retrieve the next page. This is currently unsupported
-   *  and will be ignored. The server may at any point start using this field.
-   */
-  // const pageToken = 'abc123'
+  // const policy = {}
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -47,21 +39,20 @@ function main(parent) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function callListConstraints() {
+  async function callCreatePolicy() {
     // Construct request
     const request = {
       parent,
+      policy,
     };
 
     // Run request
-    const iterable = await orgpolicyClient.listConstraintsAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await orgpolicyClient.createPolicy(request);
+    console.log(response);
   }
 
-  callListConstraints();
-  // [END orgpolicy_v2_generated_OrgPolicy_ListConstraints_async]
+  callCreatePolicy();
+  // [END orgpolicy_v2_generated_OrgPolicy_CreatePolicy_async]
 }
 
 process.on('unhandledRejection', err => {

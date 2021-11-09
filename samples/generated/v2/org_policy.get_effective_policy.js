@@ -12,27 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(parent, policy) {
-  // [START orgpolicy_v2_generated_OrgPolicy_CreatePolicy_async]
+function main(name) {
+  // [START orgpolicy_v2_generated_OrgPolicy_GetEffectivePolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The Cloud resource that will parent the new Policy. Must be in one of the
-   *  following forms:
-   *  * `projects/{project_number}`
-   *  * `projects/{project_id}`
-   *  * `folders/{folder_id}`
-   *  * `organizations/{organization_id}`
+   *  Required. The effective policy to compute. See `Policy` for naming rules.
    */
-  // const parent = 'abc123'
-  /**
-   *  Required. `Policy` to create.
-   */
-  // const policy = {}
+  // const name = 'abc123'
 
   // Imports the Orgpolicy library
   const {OrgPolicyClient} = require('@google-cloud/org-policy').v2;
@@ -40,20 +30,19 @@ function main(parent, policy) {
   // Instantiates a client
   const orgpolicyClient = new OrgPolicyClient();
 
-  async function callCreatePolicy() {
+  async function callGetEffectivePolicy() {
     // Construct request
     const request = {
-      parent,
-      policy,
+      name,
     };
 
     // Run request
-    const response = await orgpolicyClient.createPolicy(request);
+    const response = await orgpolicyClient.getEffectivePolicy(request);
     console.log(response);
   }
 
-  callCreatePolicy();
-  // [END orgpolicy_v2_generated_OrgPolicy_CreatePolicy_async]
+  callGetEffectivePolicy();
+  // [END orgpolicy_v2_generated_OrgPolicy_GetEffectivePolicy_async]
 }
 
 process.on('unhandledRejection', err => {
