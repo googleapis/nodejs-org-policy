@@ -12,5 +12,5 @@
   "api_id": "orgpolicy.googleapis.com",
   "issue_tracker": "https://github.com/googleapis/nodejs-org-policy/issues",
   "api_shortname": "org-policy",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
